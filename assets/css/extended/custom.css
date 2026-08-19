@@ -1,0 +1,45 @@
+@import url("https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css");
+
+body, .post-content, .post-single {
+    font-family: "Computer Modern Serif", Georgia, serif;
+}
+
+.post-content a {
+    color: #1a73e8;
+    text-decoration: underline;
+}
+
+.post-content a:hover {
+    color: #0b47a1;
+}
+
+.tag-link {
+    color: #1a73e8;
+    text-decoration: none;
+}
+.tag-link:hover {
+    text-decoration: underline;
+}
+html[data-theme="dark"] .tag-link {
+    color: #8ab4f8;
+}
+
+.breadcrumbs {
+    font-size: 0.85em;
+    color: var(--secondary);
+    margin-bottom: 0.5em;
+}
+.breadcrumbs a {
+    color: #1a73e8;
+}
+
+.section-link {
+    color: #1a73e8;
+    text-decoration: none;
+}
+.section-link:hover {
+    text-decoration: underline;
+}
+html[data-theme="dark"] .section-link {
+    color: #8ab4f8;
+}

@@ -1,0 +1,73 @@
+baseURL: "https://example.com/"
+languageCode: "en-uk"
+title: "James Humphries"
+theme: "PaperMod"
+
+pagination:
+  pagerSize: 5
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+params:
+  env: production
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  math: true
+
+  homeInfoParams:
+    Title: "Home"
+    Content: "Updates on my research"
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/JHHumphries"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/humphries-james/"
+    - name: email
+      url: "mailto:james.humphries@warwick.ac.uk"
+
+
+menu:
+  main:
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 50
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 10
+    - identifier: bio
+      name: Bio
+      url: /bio/
+      weight: 20
+    - identifier: posts
+      name: Blog
+      url: /posts/
+      weight: 30
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - ["\\[", "\\]"]
+            - ["$$", "$$"]
+          inline:
+            - ["\\(", "\\)"]
+  highlight:
+    noClasses: false
