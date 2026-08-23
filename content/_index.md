@@ -1,0 +1,1 @@
+<img src="/images/qchaos.jpeg" alt="Profile Picture" style="width: 400px; display: block; margin: 0 auto 20px auto;">

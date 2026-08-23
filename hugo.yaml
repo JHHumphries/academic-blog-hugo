@@ -4,7 +4,7 @@ title: "James Humphries"
 theme: "PaperMod"
 
 pagination:
-  pagerSize: 5
+  pagerSize: 6
 
 enableRobotsTXT: true
 buildDrafts: false
@@ -14,19 +14,22 @@ buildExpired: false
 params:
   env: production
   defaultTheme: auto
-  ShowReadingTime: true
+  ShowReadingTime: false
   ShowShareButtons: false
-  ShowPostNavLinks: true
+  ShowPostNavLinks: false
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
-  ShowWordCount: true
+  ShowWordCount: false
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
   math: true
 
   homeInfoParams:
-    Title: "Home"
-    Content: "Updates on my research"
+    Title: "What's New: "
+    Content: |
+      Welcome to my page. Here I will post about my ongoing research, 
+      topics or problems that I find interesting, to document my academic work and, generally, to record what I'm up to.
+      
 
   socialIcons:
     - name: github
@@ -39,22 +42,18 @@ params:
 
 menu:
   main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 5
     - identifier: archives
-      name: Archives
+      name: Archive
       url: /archives/
       weight: 50
     - identifier: about
       name: About
       url: /about/
       weight: 10
-    - identifier: bio
-      name: Bio
-      url: /bio/
-      weight: 20
-    - identifier: posts
-      name: Blog
-      url: /posts/
-      weight: 30
 
 markup:
   goldmark:

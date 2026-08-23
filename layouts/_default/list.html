@@ -47,6 +47,7 @@
 {{- end }}
 
 {{- $paginator := .Paginate $pages }}
+{{- $isHomePage := .IsHome }}
 
 {{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
 {{- partial "home_info.html" . }}
@@ -81,10 +82,20 @@
     </h2>
   </header>
   {{- if (ne (.Param "hideSummary") true) }}
-  <div class="entry-content">
-    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-  </div>
-  {{- end }}
+
+ 
+    {{- if $isHomePage }}
+      <div class="post-content md-content">
+        {{ .Content }}
+      </div>
+    {{- else }}
+      <div class="entry-content">
+        <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+      </div>
+    {{- end }}
+  {{- end }} 
+
+  
   {{- if not (.Param "hideMeta") }}
   <footer class="entry-footer">
     {{- partial "post_meta.html" . -}}
@@ -93,6 +104,8 @@
   <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
 </article>
 {{- end }}
+
+
 
 {{- if gt $paginator.TotalPages 1 }}
 <footer class="page-footer">

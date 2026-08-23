@@ -43,3 +43,15 @@ html[data-theme="dark"] .tag-link {
 html[data-theme="dark"] .section-link {
     color: #8ab4f8;
 }
+
+/* Expands the main content width to reduce dead space */
+:root {
+    --main-width: 1000px; /* Default is usually 800px. Adjust to your liking! */
+}
+
+/* Changes the color of the post headings on the home page */
+.entry-header h2 {
+    color: #1a73e8; /* Replace with any hex color code you like */
+}
+
+

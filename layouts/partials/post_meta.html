@@ -18,6 +18,12 @@
     {{- end }}
 {{- end }}
 
+{{- with .CurrentSection }}
+    {{- if not .IsHome }}
+        {{- $scratch.Add "meta" (slice (printf "<span>in <a href='%s' class='section-link'>%s</a></span>" .Permalink .Title)) }}
+    {{- end }}
+{{- end }}
+
 {{- with (partial "tags.html" .) }}
     {{- $scratch.Add "meta" (slice .) }}
 {{- end }}
