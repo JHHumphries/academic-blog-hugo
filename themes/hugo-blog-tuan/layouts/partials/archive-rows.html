@@ -13,7 +13,9 @@
     <time class="archive-row__date" datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format $fmt .Date }}</time>
     <span class="archive-row__title"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></span>
     {{- if $.showCat }}{{ with .GetTerms "categories" }}
-    <span class="archive-row__cat">{{ (index . 0).LinkTitle }}</span>
+    {{- with index . 0 }}
+    <span class="archive-row__cat"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></span>
+    {{- end }}
     {{- end }}{{ end }}
   </div>
   {{- end }}
