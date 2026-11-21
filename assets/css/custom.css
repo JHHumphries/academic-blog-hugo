@@ -36,12 +36,17 @@ a[href$="/categories/membrane-mechanics/"] {
 
 .nav-dropdown summary {
   cursor: pointer;
+  list-style: none;
   color: var(--ink-2);
   font-size: var(--step--1);
   letter-spacing: .07em;
   text-transform: uppercase;
   padding-block: 3px 2px;
   border-block-end: 1px solid transparent;
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+  display: none;
 }
 
 .nav-dropdown summary:hover,
