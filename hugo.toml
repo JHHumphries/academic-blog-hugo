@@ -27,6 +27,7 @@ weight = 10
 [[menus.main]]
 identifier = "research"
 name = "Research"
+pageRef = "/research"
 weight = 30
 
 [[menus.main]]

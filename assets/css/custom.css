@@ -58,27 +58,17 @@ a[href$="/categories/membrane-mechanics/"] {
   position: relative;
 }
 
-.nav-dropdown summary {
-  cursor: pointer;
-  list-style: none;
-  color: var(--ink-2);
-  font-size: var(--step--1);
-  letter-spacing: .07em;
-  text-transform: uppercase;
-  padding-block: 3px 2px;
-  border-block-end: 1px solid transparent;
+.nav-dropdown__label {
+  display: block;
 }
 
-.nav-dropdown summary::-webkit-details-marker {
-  display: none;
-}
-
-.nav-dropdown summary:hover,
-.nav-dropdown[open] summary {
+.site-nav .nav-dropdown:hover > .nav-dropdown__label,
+.site-nav .nav-dropdown:focus-within > .nav-dropdown__label {
   color: var(--accent-ink);
 }
 
 .nav-dropdown ul {
+  display: none;
   position: absolute;
   z-index: 10;
   inset-block-start: 100%;
@@ -90,7 +80,17 @@ a[href$="/categories/membrane-mechanics/"] {
   background: light-dark(#fff, #242426);
 }
 
-.nav-dropdown a {
+.nav-dropdown:not(.is-dismissed):focus-within ul {
+  display: block;
+}
+
+@media (hover: hover) {
+  .nav-dropdown:not(.is-dismissed):hover ul {
+    display: block;
+  }
+}
+
+.nav-dropdown li a {
   display: block;
   font-size: calc(var(--step--1) * .92);
   padding: .25rem .25rem;

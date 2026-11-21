@@ -6,14 +6,14 @@
       {{- $current := . -}}
       {{- range site.Menus.main }}
         {{- if .HasChildren }}
-          <details class="nav-dropdown">
-            <summary>{{ .Name }}</summary>
+          <div class="nav-dropdown">
+            <a class="nav-dropdown__label" href="{{ .URL | relLangURL }}"{{ if $current.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>
             <ul>
               {{- range .Children }}
               <li><a href="{{ .URL | relLangURL }}"{{ if $current.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
               {{- end }}
             </ul>
-          </details>
+          </div>
         {{- else }}
         {{- $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) -}}
         {{- if and (not $active) .PageRef }}

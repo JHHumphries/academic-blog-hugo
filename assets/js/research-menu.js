@@ -1,27 +1,17 @@
-const research = document.querySelector('.nav-dropdown');
+for (const dropdown of document.querySelectorAll('.nav-dropdown')) {
+  const label = dropdown.querySelector('.nav-dropdown__label');
 
-if (research) {
-  const trigger = research.querySelector('summary');
-  research.addEventListener('pointerenter', event => {
-    if (event.pointerType === 'mouse') research.open = true;
+  dropdown.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    dropdown.classList.add('is-dismissed');
+    label.focus();
   });
-  research.addEventListener('pointerleave', event => {
-    if (event.pointerType === 'mouse' && !research.querySelector('li a:focus')) {
-      research.open = false;
+  dropdown.addEventListener('pointerenter', () => {
+    dropdown.classList.remove('is-dismissed');
+  });
+  dropdown.addEventListener('focusin', event => {
+    if (!dropdown.contains(event.relatedTarget)) {
+      dropdown.classList.remove('is-dismissed');
     }
-  });
-  research.addEventListener('focusout', event => {
-    if (!research.contains(event.relatedTarget) && !research.matches(':hover')) {
-      research.open = false;
-    }
-  });
-  research.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && research.open) {
-      research.open = false;
-      trigger.focus();
-    }
-  });
-  document.addEventListener('pointerdown', event => {
-    if (!research.contains(event.target)) research.open = false;
   });
 }
