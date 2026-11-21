@@ -1,9 +1,23 @@
 :root {
+  /* Backgrounds: light mode first, dark mode second. */
+  --canvas: light-dark(#fbfcfd, #1c1c1e);
+  --canvas-alt: light-dark(#f3f6f9, #242426);
+  --surface: light-dark(#eaeff4, #2c2c2e);
+  --ink: light-dark(#12171d, #f5f5f5);
+  --heading-font: "IBM Plex Mono", var(--font-mono);
+
   /* The prose link colour follows the theme's post-title hover colour. */
   --prose-link-color: var(--accent-ink);
   /* Each pair sets the light-mode colour first and the dark-mode colour second. */
   --quantum-chaos-color: light-dark(#754484, #d7a9e6);
   --membrane-mechanics-color: light-dark(#8c501c, #efbc83);
+}
+
+:is(h1, h2, h3, h4, h5, h6),
+.site-brand,
+.masthead h1,
+.prose :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--heading-font);
 }
 
 .prose a {
