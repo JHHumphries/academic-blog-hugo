@@ -1,0 +1,100 @@
+baseURL = "https://jhhumphries.uk/"
+title = "James Humphries"
+theme = "hugo-blog-tuan"
+locale = "en-GB"
+timeZone = "Europe/London"
+enableRobotsTXT = true
+buildDrafts = false
+titleCaseStyle = "none"
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+
+[params]
+author = "James Humphries"
+description = "Notes on quantum chaos and membrane mechanics."
+mainSections = ["posts"]
+
+[params.blog]
+github = "https://github.com/JHHumphries"
+
+[[menus.main]]
+name = "Posts"
+pageRef = "/posts"
+weight = 10
+
+[[menus.main]]
+identifier = "research"
+name = "Research"
+weight = 30
+
+[[menus.main]]
+parent = "research"
+name = "Quantum Chaos"
+pageRef = "/categories/quantum-chaos"
+weight = 10
+
+[[menus.main]]
+parent = "research"
+name = "Membrane Mechanics"
+pageRef = "/categories/membrane-mechanics"
+weight = 20
+
+[[menus.main]]
+name = "About"
+pageRef = "/about"
+weight = 40
+
+[[menus.main]]
+name = "Archive"
+pageRef = "/archive"
+weight = 50
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true                      # allow raw HTML: <kbd>, <cite>, <ruby>…
+    [markup.goldmark.extensions]
+      # GFM strikethrough also accepts a single tilde (~x~), which swallows the
+      # subscript syntax from extras. Turn it off; extras.delete handles ~~del~~.
+      strikethrough = false
+      [markup.goldmark.extensions.passthrough]
+        enable = true                    # hand LaTeX through untouched, for KaTeX
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block  = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)'], ['$', '$']]
+      [markup.goldmark.extensions.cjk]
+        enable = true                    # drop the stray space at a soft line break
+        eastAsianLineBreaks = true
+        eastAsianLineBreaksStyle = "simple"
+        escapedSpace = true
+      [markup.goldmark.extensions.extras]
+        [markup.goldmark.extensions.extras.delete]
+          enable = true
+        [markup.goldmark.extensions.extras.insert]
+          enable = true
+        [markup.goldmark.extensions.extras.mark]
+          enable = true
+        [markup.goldmark.extensions.extras.subscript]
+          enable = true
+        [markup.goldmark.extensions.extras.superscript]
+          enable = true
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true                     # allow {.lead} under a paragraph
+        title = true
+
+  [markup.highlight]
+    noClasses = false                    # required: theme-aware syntax colours
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    lineNumbersInTable = true
+    tabWidth = 2
+    wrapperClass = "highlight"
+
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false

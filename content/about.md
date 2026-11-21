@@ -1,30 +1,26 @@
 ---
 title: "About Me"
-layout: "single"
 showtoc: false
 showbreadcrumbs: false
+summary: "My research interests in quantum chaos and membrane mechanics at the University of Warwick."
 ---
 
-I am a Mathematics and Physics student at the University of Warwick. I will be entering the final year of an integrated Masters degree in October (MMathPhys). 
+<img class="profile-portrait" src="/images/picture.jpeg" alt="Portrait of James Humphries" width="180">
 
-For reference, here is a picture of [me](/images/picture.jpeg)
+I am a final-year Mathematics and Physics student at the University of Warwick, studying for an integrated Master's degree (MMathPhys). My interests are farily wide spanning quantum chaos, statistical physics and soft materials, the formalisation of physics; and more generally, the use of geometry and topology in addressing physical problems.
 
-***
+## Research
 
-### Research Interests
+My Master's project, **Quantum Chaotic Signatures in the SYK Model**, is supervised by [Dr Amos Chan](https://amoshmchan.wixsite.com/home). I share progress reports and notes in [Quantum Chaos](/categories/quantum-chaos/).
 
-***
+In the summer of 2026 I completed a research project titled, **Outside In: the Physics of Turning Inside Out**, where I worked on understanding membrane eversion mechanistically. I am immensely grateful for the supervision of [Dr Gareth Alexander](https://warwick.ac.uk/fac/sci/physics/staff/academic/galexander/) whose insight was both neccesary and greatly enriching. The [Membrane Mechanics](/categories/membrane-mechanics/) section collects my writing on this work.
 
-Currently, I am completing a summer research project titled "Outside In: the Physics of Turning Inside Out", on the mechanics of membrane eversion, under [Dr Gareth Alexander](https://warwick.ac.uk/fac/sci/physics/staff/academic/galexander/). 
+## Code
 
-In the upcoming year I will be undertaking a Master's project under the supervision of [Dr Amos Chan](https://amoshmchan.wixsite.com/home) on Quantum Chaotic Signatures in the SYK Model.
-
-***
-
-### Contact Details
-
-email address: *james.humphries@warwick.ac.uk*
+You can find my public code on [GitHub](https://github.com/JHHumphries).
 
 
 
+## Contact
 
+For questions or discussion about my work, email [james.humphries@warwick.ac.uk](mailto:james.humphries@warwick.ac.uk). You can also find me on [LinkedIn](https://www.linkedin.com/in/humphries-james/).

@@ -1,0 +1,9 @@
+<div class="post-header__meta">
+  {{- partial "date.html" . }}
+  {{- with .GetTerms "categories" }}
+  <span class="sep" aria-hidden="true">/</span>
+  <span class="t-label">
+    {{- range $i, $t := . }}{{ if $i }}, {{ end }}<a href="{{ $t.RelPermalink }}">{{ $t.LinkTitle }}</a>{{ end -}}
+  </span>
+  {{- end }}
+</div>

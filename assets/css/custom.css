@@ -1,0 +1,68 @@
+:root {
+  /* The prose link colour follows the theme's post-title hover colour. */
+  --prose-link-color: var(--accent-ink);
+  /* Each pair sets the light-mode colour first and the dark-mode colour second. */
+  --quantum-chaos-color: light-dark(#754484, #d7a9e6);
+  --membrane-mechanics-color: light-dark(#8c501c, #efbc83);
+}
+
+.prose a {
+  color: var(--prose-link-color);
+}
+
+a[href$="/categories/quantum-chaos/"] {
+  --research-category-color: var(--quantum-chaos-color);
+}
+
+a[href$="/categories/membrane-mechanics/"] {
+  --research-category-color: var(--membrane-mechanics-color);
+}
+
+.site-nav a[href*="/categories/"],
+.post-item__meta a[href*="/categories/"],
+.post-header__meta a[href*="/categories/"],
+.prose a[href*="/categories/"] {
+  color: var(--research-category-color, var(--prose-link-color));
+}
+
+.nav-dropdown a[href*="/categories/"]:hover {
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown summary {
+  cursor: pointer;
+  color: var(--ink-2);
+  font-size: var(--step--1);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  padding-block: 3px 2px;
+  border-block-end: 1px solid transparent;
+}
+
+.nav-dropdown summary:hover,
+.nav-dropdown[open] summary {
+  color: var(--accent-ink);
+}
+
+.nav-dropdown ul {
+  position: absolute;
+  z-index: 10;
+  inset-block-start: 100%;
+  inset-inline-end: 0;
+  margin: 0;
+  padding: .4rem .65rem;
+  list-style: none;
+  border: 1px solid var(--rule-strong);
+  background: var(--surface);
+}
+
+.nav-dropdown a {
+  display: block;
+  font-size: calc(var(--step--1) * .92);
+  padding: .4rem .25rem;
+}
