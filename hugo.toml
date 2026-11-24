@@ -33,13 +33,13 @@ weight = 30
 [[menus.main]]
 parent = "research"
 name = "Quantum Chaos"
-pageRef = "/categories/quantum-chaos"
+pageRef = "/posts/quantum-chaos"
 weight = 10
 
 [[menus.main]]
 parent = "research"
 name = "Membrane Mechanics"
-pageRef = "/categories/membrane-mechanics"
+pageRef = "/posts/membrane-mechanics"
 weight = 20
 
 [[menus.main]]

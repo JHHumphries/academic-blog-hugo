@@ -25,11 +25,11 @@
   color: var(--prose-link-color);
 }
 
-a[href$="/categories/quantum-chaos/"] {
+a:is([href$="/categories/quantum-chaos/"], [href$="/posts/quantum-chaos/"]) {
   --research-category-color: var(--quantum-chaos-color);
 }
 
-a[href$="/categories/membrane-mechanics/"] {
+a:is([href$="/categories/membrane-mechanics/"], [href$="/posts/membrane-mechanics/"]) {
   --research-category-color: var(--membrane-mechanics-color);
 }
 
@@ -37,7 +37,8 @@ a[href$="/categories/membrane-mechanics/"] {
 .post-item__meta a[href*="/categories/"],
 .post-header__meta a[href*="/categories/"],
 .archive-row__cat a[href*="/categories/"],
-.prose a[href*="/categories/"] {
+.prose a[href*="/categories/"],
+:is(.site-nav, .prose) a:is([href$="/posts/quantum-chaos/"], [href$="/posts/membrane-mechanics/"]) {
   --badge-color: var(--research-category-color, var(--accent-ink));
   color: var(--badge-color);
   background-color: color-mix(in srgb, var(--badge-color) var(--category-tint-strength), transparent);
