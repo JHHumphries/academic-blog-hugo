@@ -2,7 +2,7 @@
 title: "James Humphries"
 ---
 
-<img src="/images/qchaos.jpeg"
+<img src="/images/qchaos.png"
      alt="Quantum chaos illustration"
      style="display: block; width: 100%; max-width: 400px; height: auto; margin: 1.5rem auto;">
 
