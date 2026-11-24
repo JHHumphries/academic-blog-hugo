@@ -13,7 +13,7 @@ I am a final-year Mathematics and Physics student at the University of Warwick, 
 
 My Master's project, **Quantum Chaotic Signatures in the SYK Model**, is supervised by [Dr Amos Chan](https://amoshmchan.wixsite.com/home). I share progress reports and notes in [Quantum Chaos](/posts/quantum-chaos/).
 
-In the summer of 2026 I completed a research project titled, **Outside In: the Physics of Turning Inside Out**, where I worked on understanding membrane eversion mechanistically. I am immensely grateful for the supervision of [Dr Gareth Alexander](https://warwick.ac.uk/fac/sci/physics/staff/academic/galexander/) whose insight was both neccesary and greatly enriching. The [Membrane Mechanics](/posts/membrane-mechanics/) section collects my writing on this work.
+In the summer of 2026 I completed a research project titled, **Outside In: the Physics of Turning Inside Out**, where I worked on understanding membrane eversion mechanistically. I am grateful for the supervision of [Dr Gareth Alexander](https://warwick.ac.uk/fac/sci/physics/staff/academic/galexander/). The [Membrane Mechanics](/posts/membrane-mechanics/) section collects my writing on this work.
 
 ## Code
 
