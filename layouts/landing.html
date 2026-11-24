@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="wrap">
+  <header class="page-head">
+    <h1>{{ .Title }}</h1>
+  </header>
+  <div class="prose">
+    {{ .Content }}
+    {{ with .Params.topics }}
+    <ul>
+      {{ range . }}
+        {{ $topic := . }}
+        {{ with site.GetPage $topic.page }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          {{ with $topic.description }}<p>{{ . | markdownify }}</p>{{ end }}
+        </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
