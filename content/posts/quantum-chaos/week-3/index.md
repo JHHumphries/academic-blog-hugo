@@ -5,11 +5,10 @@ url: "/quantum-chaos/week-3/"
 categories: ["Quantum Chaos"]
 draft: false
 date: 2026-09-25
-summary: "An introduction to representing fermionic operators using spin degrees of freedom, with supporting notes on Majorana and Pauli algebra."
+summary: "Connected representations of the Majoranic Algebra to those of the Fermionic one. Derive expressions for Majoranas operators in terms of Dirac fermions - which can be represented using matrices"
 ---
+Connected representations of the Majoranic Algebra to those of the Fermionic one. Derived expressions for $\psi$ operators in terms of Dirac fermions, which can be represented using matrices for simulation.
 
-<!-- Edit this introduction and the summary above as your report develops. -->
-An introduction to representing fermionic operators using spin degrees of freedom, with supporting notes on Majorana and Pauli algebra.
 
 <iframe
   src="Week3.pdf"

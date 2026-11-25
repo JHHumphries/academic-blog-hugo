@@ -13,7 +13,7 @@ tag = "tags"
 
 [params]
 author = "James Humphries"
-description = "Notes on quantum chaos and membrane mechanics."
+description = "Here you will find details of my ongoing research, a short bio and my CV. As well as anything else that I find interesting."
 mainSections = ["posts"]
 
 [params.blog]
@@ -45,12 +45,17 @@ weight = 20
 [[menus.main]]
 name = "About"
 pageRef = "/about"
-weight = 40
+weight = 45
+
+[[menus.main]]
+name = "CV"
+url = "/files/cv.pdf"
+weight = 50
 
 [[menus.main]]
 name = "Archive"
 pageRef = "/archive"
-weight = 50
+weight = 42
 
 [markup]
   [markup.goldmark]

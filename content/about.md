@@ -19,8 +19,6 @@ In the summer of 2026 I completed a research project titled, **Outside In: the P
 
 You can find my public code on [GitHub](https://github.com/JHHumphries).
 
-
-
 ## Contact
 
 For questions or discussion about my work, email [james.humphries@warwick.ac.uk](mailto:james.humphries@warwick.ac.uk). You can also find me on [LinkedIn](https://www.linkedin.com/in/humphries-james/).

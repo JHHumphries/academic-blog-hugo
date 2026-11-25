@@ -5,11 +5,11 @@ url: "/quantum-chaos/week-6/"
 categories: ["Quantum Chaos"]
 draft: false
 date: 2026-11-16
-summary: "A further progress report on the SYK model, collecting discussion of the spectral form factor, Gaussian filtering and spectral unfolding."
+summary: ""
 ---
 
 <!-- Edit this introduction and the summary above as your report develops. -->
-A further progress report on the SYK model, collecting discussion of the spectral form factor, Gaussian filtering and spectral unfolding.
+
 
 <iframe
   src="Week6.pdf"

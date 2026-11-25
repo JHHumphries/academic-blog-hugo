@@ -5,11 +5,11 @@ date: 2026-10-16
 url: "/quantum-chaos/week-4/"
 categories: ["Quantum Chaos"]
 draft: false
-summary: "Notes on the SYK model, the spectral form factor and spectral unfolding, including Gaussian filtering and numerical plots."
+summary: ""
 ---
 
 <!-- Edit this introduction and the summary above as your report develops. -->
-Notes on the SYK model, the spectral form factor and spectral unfolding, including Gaussian filtering and numerical plots.
+
 
 <iframe
   src="Week4.pdf"
