@@ -1,5 +1,6 @@
 const feed = document.querySelector('.paper-feed');
 const strip = feed.querySelector('.paper-feed__strip');
+const track = feed.querySelector('.paper-feed__track');
 const list = feed.querySelector('.paper-feed__items');
 const status = feed.querySelector('[role="status"]');
 const sourceNames = ['arXiv', 'APS', 'Nature', 'Biophysical Journal'];
@@ -10,11 +11,12 @@ const topicsByScope = {
 const scopedTopics = topicsByScope[feed.dataset.scope];
 let papers = [];
 let note = '';
-let frame = null;
-let previousTime;
-let position;
+const pixelsPerMillisecond = .045;
+let animation;
+let loopWidth = 0;
 let copy;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const hover = window.matchMedia('(hover: hover)');
 let touching = false;
 
 async function getJSON(url) {
@@ -47,9 +49,12 @@ function paperKey(paper) {
 }
 
 function render() {
-  stop();
-  copy?.remove();
-  copy = undefined;
+  if (strip.matches(':focus-within')) {
+    // A live refresh should not remove a headline while someone is reading it.
+    strip.addEventListener('focusout', () => queueMicrotask(render), { once: true });
+    return;
+  }
+  clearAnimation();
   list.replaceChildren();
   strip.scrollLeft = 0;
   for (const paper of papers) {
@@ -70,51 +75,94 @@ function render() {
   feed.toggleAttribute('data-has-items', papers.length > 0);
   status.textContent = papers.length ? papers.length + ' papers. ' + note
     : scopedTopics ? 'No papers for this research area are available right now.' : 'The paper feed is unavailable at the moment.';
-  if (papers.length) {
+  resizeLoop();
+}
+
+function clearAnimation() {
+  animation?.cancel();
+  animation = undefined;
+  loopWidth = 0;
+  copy?.remove();
+  copy = undefined;
+}
+
+function currentOffset() {
+  const position = (animation?.currentTime ?? 0) * pixelsPerMillisecond;
+  return (loopWidth ? position % loopWidth : 0) + strip.scrollLeft;
+}
+
+function resizeLoop() {
+  const width = list.getBoundingClientRect().width;
+  if (reducedMotion.matches || !list.childElementCount || width <= strip.clientWidth) {
+    const offset = currentOffset();
+    clearAnimation();
+    strip.scrollLeft = offset;
+    return;
+  }
+  if (width === loopWidth && animation) return;
+
+  const offset = currentOffset();
+  animation?.cancel();
+  if (!copy) {
     copy = list.cloneNode(true);
     copy.setAttribute('aria-hidden', 'true');
     copy.querySelectorAll('a').forEach(link => { link.tabIndex = -1; });
-    strip.append(copy);
+    track.append(copy);
   }
+  loopWidth = width;
+  strip.scrollLeft = 0;
+  animation = track.animate(
+    [{ transform: 'translateX(0)' }, { transform: `translateX(-${loopWidth}px)` }],
+    { duration: loopWidth / pixelsPerMillisecond, iterations: Infinity, easing: 'linear' }
+  );
+  animation.currentTime = (offset % loopWidth) / pixelsPerMillisecond;
   updatePlayback();
 }
 
-function stop() {
-  cancelAnimationFrame(frame);
-  frame = null;
-  previousTime = undefined;
-}
-
 function updatePlayback() {
-  if (!reducedMotion.matches && copy && frame === null) {
-    position = strip.scrollLeft;
-    frame = requestAnimationFrame(step);
-  } else if (reducedMotion.matches) {
-    stop();
+  if (!animation) return;
+  if (touching || strip.matches(':focus-within') || (hover.matches && strip.matches(':hover'))) {
+    animation.pause();
+    return;
   }
+  if (strip.scrollLeft) {
+    const offset = currentOffset();
+    strip.scrollLeft = 0;
+    animation.currentTime = (offset % loopWidth) / pixelsPerMillisecond;
+  }
+  animation.play();
 }
 
-function step(time) {
-  if (previousTime !== undefined) {
-    if (touching || strip.matches(':focus-within') ||
-        (window.matchMedia('(hover: hover)').matches && strip.matches(':hover'))) {
-      position = strip.scrollLeft;
-    } else {
-      position = (position + Math.min(time - previousTime, 50) * .045) % list.getBoundingClientRect().width;
-      strip.scrollLeft = position;
-    }
+strip.addEventListener('pointerenter', updatePlayback);
+strip.addEventListener('pointerleave', updatePlayback);
+strip.addEventListener('focusin', event => {
+  updatePlayback();
+  if (!animation || !list.contains(event.target)) return;
+  const viewport = strip.getBoundingClientRect();
+  const headline = event.target.getBoundingClientRect();
+  if (headline.left < viewport.left || headline.right > viewport.right) {
+    const offset = headline.left - track.getBoundingClientRect().left;
+    strip.scrollLeft = 0;
+    animation.currentTime = offset / pixelsPerMillisecond;
   }
-  previousTime = time;
-  frame = requestAnimationFrame(step);
-}
-
+});
+strip.addEventListener('focusout', () => queueMicrotask(updatePlayback));
 strip.addEventListener('pointerdown', event => {
-  if (event.pointerType === 'touch') touching = true;
+  if (event.pointerType !== 'touch') return;
+  touching = true;
+  updatePlayback();
 });
 for (const eventName of ['pointerup', 'pointercancel']) {
-  window.addEventListener(eventName, () => { touching = false; });
+  window.addEventListener(eventName, () => {
+    if (!touching) return;
+    touching = false;
+    updatePlayback();
+  });
 }
-reducedMotion.addEventListener('change', updatePlayback);
+reducedMotion.addEventListener('change', resizeLoop);
+const observer = new ResizeObserver(resizeLoop);
+observer.observe(strip);
+observer.observe(list);
 
 async function load() {
   const liveRequest = getJSON(feed.dataset.endpoint).catch(() => null);
