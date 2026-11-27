@@ -2,9 +2,9 @@ const feed = document.querySelector('.paper-feed');
 const strip = feed.querySelector('.paper-feed__strip');
 const list = feed.querySelector('.paper-feed__items');
 const status = feed.querySelector('[role="status"]');
-const sourceNames = ['arXiv', 'APS', 'Nature'];
+const sourceNames = ['arXiv', 'APS', 'Nature', 'Biophysical Journal'];
 const topicsByScope = {
-  'quantum-chaos': ['SYK', 'Dilaton gravity'],
+  'quantum-chaos': ['SYK', 'Dilaton gravity', 'Quantum Chaos'],
   'membrane-mechanics': ['Membrane Biophysics']
 };
 const scopedTopics = topicsByScope[feed.dataset.scope];
@@ -27,6 +27,25 @@ function inScope(paper) {
   return !scopedTopics || scopedTopics.some(topic => paper.tags.includes(topic));
 }
 
+function mixSources(papers) {
+  const counts = new Map();
+  return [...papers]
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .map(paper => {
+      const rank = counts.get(paper.source) ?? 0;
+      counts.set(paper.source, rank + 1);
+      return { paper, rank };
+    })
+    .sort((a, b) => a.rank - b.rank)
+    .map(({ paper }) => paper);
+}
+
+function paperKey(paper) {
+  // Older saved Nature links point directly to articles rather than to DOIs.
+  const natureId = paper.url.match(/^https:\/\/www\.nature\.com\/articles\/([^/?#]+)/)?.[1];
+  return natureId ? 'https://doi.org/10.1038/' + natureId.toLowerCase() : paper.url;
+}
+
 function render() {
   stop();
   copy?.remove();
@@ -40,7 +59,7 @@ function render() {
     link.textContent = paper.title;
     if (paper.tags.includes('Membrane Biophysics')) {
       link.dataset.research = 'membrane-mechanics';
-    } else if (paper.tags.includes('SYK') || paper.tags.includes('Dilaton gravity')) {
+    } else if (topicsByScope['quantum-chaos'].some(topic => paper.tags.includes(topic))) {
       link.dataset.research = 'quantum-chaos';
     }
     const metadata = document.createElement('small');
@@ -101,7 +120,7 @@ async function load() {
   const liveRequest = getJSON(feed.dataset.endpoint).catch(() => null);
   const snapshot = (await getJSON(feed.dataset.snapshot).catch(() => [])).filter(inScope);
   if (snapshot.length) {
-    papers = snapshot.map(paper => ({ ...paper, saved: true }));
+    papers = mixSources(snapshot.map(paper => ({ ...paper, saved: true })));
     note = 'Showing saved papers while checking sources.';
     render();
   }
@@ -113,12 +132,11 @@ async function load() {
   const savedItems = snapshot.filter(paper => (scopedTopics && !liveItems.length) || fallback.includes(paper.source)
     || (sources[paper.source] === 'partial' && paper.tags.some(tag =>
       !liveItems.some(item => item.source === paper.source && item.tags.includes(tag)))));
-  papers = [...new Map([
+  papers = mixSources([...new Map([
     ...savedItems.map(paper => ({ ...paper, saved: true })),
     ...liveItems.map(paper => ({ ...paper, saved: sources[paper.source] === 'stale' }))
-  ].map(paper => [paper.url, paper])).values()]
-    .filter(paper => /^https:\/\/(?:arxiv\.org\/abs\/|doi\.org\/|www\.nature\.com\/articles\/)/.test(paper.url))
-    .sort((a, b) => b.date.localeCompare(a.date));
+  ].map(paper => [paperKey(paper), paper])).values()]
+    .filter(paper => /^https:\/\/(?:arxiv\.org\/abs\/|doi\.org\/|www\.nature\.com\/articles\/|www\.sciencedirect\.com\/science\/article\/pii\/)/.test(paper.url)));
   const savedSources = sourceNames.filter(name =>
     sources[name] === 'stale' || savedItems.some(paper => paper.source === name));
   const incomplete = sourceNames.filter(name => sources[name] === 'partial' && !savedSources.includes(name));

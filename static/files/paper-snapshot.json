@@ -1,5 +1,45 @@
 [
   {
+    "source": "Nature",
+    "journal": "Nature Portfolio",
+    "title": "Visualizing activation of the muscle acetylcholine receptor",
+    "url": "https://www.nature.com/articles/s41594-026-01929-x",
+    "date": "2026-11-27",
+    "tags": [
+      "Membrane Biophysics"
+    ]
+  },
+  {
+    "source": "Nature",
+    "journal": "Nature Portfolio",
+    "title": "Identification of PUFA interaction site on ASIC3 suggests a complex regulatory mechanism",
+    "url": "https://www.nature.com/articles/s42003-026-11348-9",
+    "date": "2026-11-26",
+    "tags": [
+      "Membrane Biophysics"
+    ]
+  },
+  {
+    "source": "Biophysical Journal",
+    "journal": "Biophysical Journal",
+    "title": "Post-translational modification networks can sense the membrane phase transition",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0006349526008088",
+    "date": "2026-11-26",
+    "tags": [
+      "Membrane Biophysics"
+    ]
+  },
+  {
+    "source": "Biophysical Journal",
+    "journal": "Biophysical Journal",
+    "title": "Interactions with lipid membrane modulate the conformational dynamics and energy landscape of Tumor Necrosis Factor",
+    "url": "https://www.sciencedirect.com/science/article/pii/S000634952600809X",
+    "date": "2026-11-26",
+    "tags": [
+      "Membrane Biophysics"
+    ]
+  },
+  {
     "title": "Matter-decorated trumpets in double-scaled SYK",
     "url": "https://arxiv.org/abs/2611.30296",
     "date": "2026-11-23",
@@ -38,6 +78,16 @@
     "journal": "Preprint",
     "tags": [
       "SYK"
+    ]
+  },
+  {
+    "source": "Nature",
+    "journal": "Nature Portfolio",
+    "title": "Insulin-independent glucose uptake into mouse skeletal muscle by a sodium/glucose linked transporter",
+    "url": "https://www.nature.com/articles/s42003-026-10848-y",
+    "date": "2026-11-19",
+    "tags": [
+      "Membrane Biophysics"
     ]
   },
   {
@@ -81,6 +131,16 @@
     ]
   },
   {
+    "source": "Biophysical Journal",
+    "journal": "Biophysical Journal",
+    "title": "Buckled lipid bilayers reveal the nonlinear membrane mechanics of tilt, stretch, and bend",
+    "url": "https://www.sciencedirect.com/science/article/pii/S000634952600785X",
+    "date": "2026-11-16",
+    "tags": [
+      "Membrane Biophysics"
+    ]
+  },
+  {
     "title": "Spectrum of a 2D QFT analogue of the SYK model",
     "url": "https://arxiv.org/abs/2611.18063",
     "date": "2026-11-13",
@@ -98,6 +158,16 @@
     "journal": "Preprint",
     "tags": [
       "Dilaton gravity"
+    ]
+  },
+  {
+    "source": "Nature",
+    "journal": "Nature Portfolio",
+    "title": "Directional motility of crystallizing cholesterol on supported lipid bilayers",
+    "url": "https://www.nature.com/articles/s41467-026-79445-1",
+    "date": "2026-11-13",
+    "tags": [
+      "Membrane Biophysics"
     ]
   },
   {
@@ -149,6 +219,16 @@
     "journal": "Preprint",
     "tags": [
       "Dilaton gravity"
+    ]
+  },
+  {
+    "source": "Nature",
+    "journal": "Nature Portfolio",
+    "title": "Theoretical considerations regarding an acidic nanolayer surrounding lysosomes",
+    "url": "https://www.nature.com/articles/s41556-026-02125-1",
+    "date": "2026-11-10",
+    "tags": [
+      "Membrane Biophysics"
     ]
   },
   {
@@ -233,6 +313,16 @@
     ]
   },
   {
+    "source": "APS",
+    "journal": "Physical Review E",
+    "title": "Low-frequency oscillations as internal state integrators of a biosystem model with voltage-gated ion channels",
+    "url": "https://doi.org/10.1103/x78y-924k",
+    "date": "2026-10-14",
+    "tags": [
+      "Membrane Biophysics"
+    ]
+  },
+  {
     "title": "Membrane bending energy selects for symmetric growth of protein assemblies",
     "url": "https://doi.org/10.1103/tnv7-fjh5",
     "date": "2026-10-08",
@@ -273,11 +363,31 @@
     ]
   },
   {
+    "source": "APS",
+    "journal": "Physical Review E",
+    "title": "Anomalous diffusion and effective shear modulus in a semisolid membrane",
+    "url": "https://doi.org/10.1103/lljw-j37w",
+    "date": "2026-07-28",
+    "tags": [
+      "Membrane Biophysics"
+    ]
+  },
+  {
+    "source": "APS",
+    "journal": "Physical Review E",
     "title": "Enhancing membrane tension promotes extracellular vesicle secretion",
     "url": "https://doi.org/10.1103/n6jp-gg95",
     "date": "2026-07-14",
+    "tags": [
+      "Membrane Biophysics"
+    ]
+  },
+  {
     "source": "APS",
     "journal": "Physical Review E",
+    "title": "Interaction between cell membranes and protein inclusions in the large-deformation regime",
+    "url": "https://doi.org/10.1103/7gjd-m48q",
+    "date": "2026-07-07",
     "tags": [
       "Membrane Biophysics"
     ]
@@ -398,6 +508,26 @@
     "date": "2025-07-08",
     "source": "Nature",
     "journal": "Nature Communications",
+    "tags": [
+      "Membrane Biophysics"
+    ]
+  },
+  {
+    "source": "Biophysical Journal",
+    "journal": "Biophysical Journal",
+    "title": "In vitro wrapping of nonenveloped viral capsids with lipid bilayers",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0006349526006594",
+    "date": "",
+    "tags": [
+      "Membrane Biophysics"
+    ]
+  },
+  {
+    "source": "Biophysical Journal",
+    "journal": "Biophysical Journal",
+    "title": "Phosphatidylinositol phospholipids drive hepatitis C virus core protein assembly on lipid membranes",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0006349526000032",
+    "date": "",
     "tags": [
       "Membrane Biophysics"
     ]
