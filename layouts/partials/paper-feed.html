@@ -1,0 +1,21 @@
+{{- $script := resources.Get "js/paper-feed.js" | minify | fingerprint -}}
+{{- $scope := "" -}}
+{{- $label := "Recent papers" -}}
+{{- range slice "quantum-chaos" "membrane-mechanics" -}}
+  {{- $section := printf "/posts/%s" . -}}
+  {{- $term := printf "/categories/%s" . -}}
+  {{- if or (eq $.Path $section) (hasPrefix $.Path (printf "%s/" $section)) (eq $.Path $term) -}}
+    {{- $scope = . -}}
+    {{- with site.GetPage $section -}}{{- $label = printf "Recent papers: %s" .Title -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+<div class="paper-feed" role="region" aria-label="{{ $label }}"
+     data-scope="{{ $scope }}"
+     data-endpoint="{{ ".netlify/functions/papers" | relURL }}"
+     data-snapshot="{{ "files/paper-snapshot.json" | relURL }}">
+  <p class="paper-feed__status" role="status">Loading papers…</p>
+  <div class="paper-feed__strip" tabindex="0" aria-label="Scrollable paper headlines">
+    <ul class="paper-feed__items" aria-label="Paper headlines"></ul>
+  </div>
+</div>
+<script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>

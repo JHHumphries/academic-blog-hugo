@@ -14,6 +14,68 @@
   --category-tint-strength: 14%;
 }
 
+.paper-feed {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  padding-inline: clamp(.35rem, 2vw, 1rem);
+  background: var(--canvas-alt);
+  border-bottom: 1px solid var(--rule);
+  font: var(--step--1)/1.35 var(--font-body);
+  white-space: nowrap;
+}
+
+.paper-feed__strip {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.paper-feed__items {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  min-width: 100%;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: .18rem 1.25rem .18rem 0;
+}
+
+.paper-feed__items a {
+  color: var(--research-category-color, var(--accent-ink));
+}
+
+.paper-feed__items a:hover {
+  text-decoration: underline;
+}
+
+.paper-feed__items small {
+  margin-inline-start: .45rem;
+  color: var(--ink-2);
+}
+
+.paper-feed__status {
+  color: var(--ink-2);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-block: .18rem;
+}
+
+.paper-feed[data-has-items] .paper-feed__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
 :is(h1, h2, h3, h4, h5, h6),
 .site-brand,
 .masthead h1,
@@ -25,11 +87,11 @@
   color: var(--prose-link-color);
 }
 
-a:is([href$="/categories/quantum-chaos/"], [href$="/posts/quantum-chaos/"]) {
+a:is([href$="/categories/quantum-chaos/"], [href$="/posts/quantum-chaos/"], [data-research="quantum-chaos"]) {
   --research-category-color: var(--quantum-chaos-color);
 }
 
-a:is([href$="/categories/membrane-mechanics/"], [href$="/posts/membrane-mechanics/"]) {
+a:is([href$="/categories/membrane-mechanics/"], [href$="/posts/membrane-mechanics/"], [data-research="membrane-mechanics"]) {
   --research-category-color: var(--membrane-mechanics-color);
 }
 
