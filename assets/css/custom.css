@@ -55,6 +55,15 @@
   text-decoration: underline;
 }
 
+.paper-feed__about {
+  flex: none;
+  padding-inline-start: .45rem;
+  border-inline-start: 1px solid var(--rule);
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-underline-offset: .15em;
+}
+
 .paper-feed__items small {
   margin-inline-start: .45rem;
   color: var(--ink-2);
